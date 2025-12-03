@@ -21,7 +21,9 @@ def run_simulation(
     # Simulation parameters
     hours_per_day = 8 # Operating hours
     
-    dates = pd.date_range(start='2024-01-01', periods=days, freq='D')
+    # Use current date as start
+    start_date = pd.Timestamp.now().normalize()
+    dates = pd.date_range(start=start_date, periods=days, freq='D')
     results = []
     
     current_backlog = 0
