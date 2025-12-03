@@ -38,7 +38,7 @@ This project uses [uv](https://github.com/astral-sh/uv) for fast package managem
 
 1.  **Run the Application**:
     ```bash
-    uv run streamlit run app.py
+    uv run streamlit run 0_🎫_Simulation.py
     ```
 
 2.  **Interact with the App**:
