@@ -60,3 +60,12 @@ To run tests:
 ```bash
 uv run python test_simulation.py
 ```
+
+## License
+
+This project is licensed under the MIT License.
+
+## Author
+
+Programmed by **Quito96**.
+Original Repository: [https://github.com/quito96/TicketSimulation.git](https://github.com/quito96/TicketSimulation.git)
