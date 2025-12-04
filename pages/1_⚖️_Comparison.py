@@ -29,7 +29,7 @@ st.sidebar.info(t['info_shared'])
 
 # Inbound
 st.sidebar.subheader(t['header_inbound'])
-avg_daily_tickets = st.sidebar.slider(t['avg_inbound'], 10, 1000, 195)
+avg_daily_tickets = st.sidebar.slider(t['avg_inbound'], 10, 1000, 133)
 volatility = st.sidebar.slider(t['volatility'], 0, 100, 25, help=t['help_volatility']) / 100.0
 
 # Ticket Properties
