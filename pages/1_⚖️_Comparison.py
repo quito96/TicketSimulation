@@ -60,6 +60,7 @@ with col_a:
     with st.expander(t['config_a'], expanded=True):
         ft_a = st.slider(t['ft_agents_a'], 0, 20, 5, key="ft_a", help=t['help_ft'])
         pt_a = st.slider(t['pt_agents_a'], 0, 10, 0, key="pt_a", help=t['help_pt'])
+        pt_hours_a = st.slider("🔵 PT Hours/Day (A)", 1, 8, 4, key="pt_hours_a")
         eff_a = st.slider(t['eff_a'], 1, 20, 2, key="eff_a", help=t['help_eff'])
         vac_a = st.slider(t['absent_a'], 0, 50, 5, key="vac_a", help=t['help_absent']) / 100.0
 
@@ -68,6 +69,7 @@ with col_b:
     with st.expander(t['config_b'], expanded=True):
         ft_b = st.slider(t['ft_agents_b'], 0, 20, 5, key="ft_b", help=t['help_ft'])
         pt_b = st.slider(t['pt_agents_b'], 0, 10, 0, key="pt_b", help=t['help_pt'])
+        pt_hours_b = st.slider("🟠 PT Hours/Day (B)", 1, 8, 4, key="pt_hours_b")
         eff_b = st.slider(t['eff_b'], 1, 20, 5, key="eff_b", help=t['help_eff'])
         vac_b = st.slider(t['absent_b'], 0, 50, 15, key="vac_b", help=t['help_absent']) / 100.0
 
@@ -81,6 +83,7 @@ df_a = run_simulation(
     volatility=volatility,
     full_time_agents=ft_a,
     part_time_agents=pt_a,
+    part_time_hours=pt_hours_a,
     agent_efficiency=eff_a,
     vacation_rate=vac_a,
     complexity_mix={'Low': comp_low, 'Medium': comp_med, 'High': comp_high},
@@ -94,6 +97,7 @@ df_b = run_simulation(
     volatility=volatility,
     full_time_agents=ft_b,
     part_time_agents=pt_b,
+    part_time_hours=pt_hours_b,
     agent_efficiency=eff_b,
     vacation_rate=vac_b,
     complexity_mix={'Low': comp_low, 'Medium': comp_med, 'High': comp_high},
@@ -126,9 +130,9 @@ kpi_col1.metric(t['kpi_wait_b'], f"{wait_b:.1f} Hours", delta=f"{delta_wait:.1f}
 kpi_col2.metric(t['kpi_backlog_a'], f"{backlog_a} Tickets")
 kpi_col2.metric(t['kpi_backlog_b'], f"{backlog_b} Tickets", delta=f"{delta_backlog} Tickets", delta_color="inverse")
 
-# Cost/Hours proxy
-hours_a = (df_a['Staff Available (FT)'].sum() * 8) + (df_a['Staff Available (PT)'].sum() * 4)
-hours_b = (df_b['Staff Available (FT)'].sum() * 8) + (df_b['Staff Available (PT)'].sum() * 4)
+# Cost/Hours proxy - use the actual pt_hours values from the configuration
+hours_a = (df_a['Staff Available (FT)'].sum() * 8) + (df_a['Staff Available (PT)'].sum() * pt_hours_a)
+hours_b = (df_b['Staff Available (FT)'].sum() * 8) + (df_b['Staff Available (PT)'].sum() * pt_hours_b)
 delta_hours = hours_b - hours_a
 kpi_col3.metric(t['kpi_hours_a'], f"{hours_a}")
 kpi_col3.metric(t['kpi_hours_b'], f"{hours_b}", delta=f"{delta_hours}", delta_color="inverse")

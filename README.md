@@ -49,10 +49,15 @@ This project uses [uv](https://github.com/astral-sh/uv) for fast package managem
 ## Simulation Logic
 
 The simulation runs a day-by-day model:
-1.  **Inbound**: Generates new tickets based on the average daily volume and volatility.
-2.  **Capacity**: Calculates total agent hours (Full-time + Part-time) minus vacation/sick time.
+1.  **Inbound**: Generates new tickets based on the average daily volume and volatility (lognormal distribution).
+2.  **Capacity**: Calculates total agent hours (Full-time + Part-time) minus vacation/sick time (pre-scheduled absences).
 3.  **Throughput**: Converts agent hours into "ticket solving capacity" based on efficiency and ticket complexity.
 4.  **Queue**: Unsolved tickets carry over to the next day's backlog.
+
+**📚 For detailed technical documentation**, see:
+- [docs/SIMULATION_LOGIC.md](./docs/SIMULATION_LOGIC.md) - Mathematical model and algorithms
+- [docs/KNOWN_LIMITATIONS.md](./docs/KNOWN_LIMITATIONS.md) - Assumptions and limitations
+- [docs/CHANGELOG.md](./docs/CHANGELOG.md) - Version history and changes
 
 ## Development
 

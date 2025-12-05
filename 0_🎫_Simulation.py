@@ -38,7 +38,6 @@ vacation_rate = st.sidebar.slider(t['absenteeism'], 0, 50, 5, help=t['help_absen
 st.sidebar.subheader(t['header_inbound'])
 avg_daily_tickets = st.sidebar.slider(t['avg_inbound'], 10, 1000, 100)
 volatility = st.sidebar.slider(t['volatility'], 0, 100, 20, help=t['help_volatility']) / 100.0
-seasonality_factor = st.sidebar.checkbox(t['seasonality'], value=False)
 
 st.sidebar.subheader(t['header_props'])
 st.sidebar.markdown(t['complexity_dist'])
