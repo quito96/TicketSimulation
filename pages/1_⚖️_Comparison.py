@@ -127,15 +127,15 @@ delta_backlog = backlog_b - backlog_a
 kpi_col1.metric(t['kpi_wait_a'], f"{wait_a:.1f} Hours")
 kpi_col1.metric(t['kpi_wait_b'], f"{wait_b:.1f} Hours", delta=f"{delta_wait:.1f} Hours", delta_color="inverse")
 
-kpi_col2.metric(t['kpi_backlog_a'], f"{backlog_a} Tickets")
-kpi_col2.metric(t['kpi_backlog_b'], f"{backlog_b} Tickets", delta=f"{delta_backlog} Tickets", delta_color="inverse")
+kpi_col2.metric(t['kpi_backlog_a'], f"{int(backlog_a)} Tickets")
+kpi_col2.metric(t['kpi_backlog_b'], f"{int(backlog_b)} Tickets", delta=f"{int(delta_backlog)} Tickets", delta_color="inverse")
 
 # Cost/Hours proxy - use the actual pt_hours values from the configuration
 hours_a = (df_a['Staff Available (FT)'].sum() * 8) + (df_a['Staff Available (PT)'].sum() * pt_hours_a)
 hours_b = (df_b['Staff Available (FT)'].sum() * 8) + (df_b['Staff Available (PT)'].sum() * pt_hours_b)
 delta_hours = hours_b - hours_a
-kpi_col3.metric(t['kpi_hours_a'], f"{hours_a}")
-kpi_col3.metric(t['kpi_hours_b'], f"{hours_b}", delta=f"{delta_hours}", delta_color="inverse")
+kpi_col3.metric(t['kpi_hours_a'], f"{int(hours_a)}")
+kpi_col3.metric(t['kpi_hours_b'], f"{int(hours_b)}", delta=f"{int(delta_hours)}", delta_color="inverse")
 
 # 2. Comparative Pulse (Side-by-Side)
 st.subheader(t['pulse_compare'])

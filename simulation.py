@@ -167,11 +167,11 @@ def run_simulation(
         
         results.append({
             'Date': date,
-            'Inbound (Raw)': round(raw_inbound, 2),
-            'Inbound (Net)': round(actual_inbound, 2),
-            'Capacity (Tickets)': round(daily_capacity_tickets, 2),
-            'Solved': round(solved, 2),
-            'Backlog (End of Day)': round(new_backlog, 2),
+            'Inbound (Raw)': round(raw_inbound),
+            'Inbound (Net)': round(actual_inbound),
+            'Capacity (Tickets)': round(daily_capacity_tickets),
+            'Solved': round(solved),
+            'Backlog (End of Day)': round(new_backlog),
             'Est. Wait Time (Days)': round(est_wait_time_days, 3),
             'Est. Wait Time (Hours)': round(est_wait_time_days * 24, 2),
             'Staff Available (FT)': ft_agents_available,

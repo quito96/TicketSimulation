@@ -85,8 +85,8 @@ total_solved = df['Solved'].sum()
 total_inbound = df['Inbound (Net)'].sum()
 
 kpi1.metric(t['kpi_wait'], f"{avg_wait:.1f} Hours", delta_color="inverse")
-kpi2.metric(t['kpi_backlog'], f"{max_backlog} Tickets", delta_color="inverse")
-kpi3.metric(t['kpi_solved'], f"{total_solved}")
+kpi2.metric(t['kpi_backlog'], f"{int(max_backlog)} Tickets", delta_color="inverse")
+kpi3.metric(t['kpi_solved'], f"{int(total_solved)}")
 kpi4.metric(t['kpi_clearance'], f"{(total_solved/total_inbound)*100:.1f}%")
 
 # 2. Main Chart: The Pulse
