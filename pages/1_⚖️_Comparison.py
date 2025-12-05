@@ -29,7 +29,7 @@ st.sidebar.info(t['info_shared'])
 
 # Inbound
 st.sidebar.subheader(t['header_inbound'])
-avg_daily_tickets = st.sidebar.slider(t['avg_inbound'], 10, 1000, 133)
+avg_daily_tickets = st.sidebar.slider(t['avg_inbound'], 10, 1000, 50)
 volatility = st.sidebar.slider(t['volatility'], 0, 100, 25, help=t['help_volatility']) / 100.0
 
 # Ticket Properties
@@ -60,7 +60,7 @@ with col_a:
     with st.expander(t['config_a'], expanded=True):
         ft_a = st.slider(t['ft_agents_a'], 0, 20, 5, key="ft_a", help=t['help_ft'])
         pt_a = st.slider(t['pt_agents_a'], 0, 10, 0, key="pt_a", help=t['help_pt'])
-        eff_a = st.slider(t['eff_a'], 1, 20, 5, key="eff_a", help=t['help_eff'])
+        eff_a = st.slider(t['eff_a'], 1, 20, 2, key="eff_a", help=t['help_eff'])
         vac_a = st.slider(t['absent_a'], 0, 50, 5, key="vac_a", help=t['help_absent']) / 100.0
 
 with col_b:
