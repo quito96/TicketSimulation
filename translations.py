@@ -109,6 +109,75 @@ Adjust the parameters in the sidebar to see how they impact **Resolution Time** 
         'axis_wait': "Wait Time (Hours)",
         'axis_prob': "Probability (<= x)",
         'title_cdf': "CDF of Wait Time",
+
+        # Info Page
+        'page_title_info': "Project Info",
+        'info_title': "ℹ️ Project Information",
+        'info_subtitle': "About this simulation and how it works",
+
+        'section_overview': "📋 Overview",
+        'overview_text': """This application simulates a support ticket system to assist with staffing
+        and capacity management planning. It models realistic ticket flows considering personnel,
+        complexity, and automation.""",
+
+        'section_how_it_works': "⚙️ How Does the Simulation Work?",
+        'how_step_1': "**1. Ticket Arrival**: Tickets arrive daily with configurable volatility (lognormal distribution)",
+        'how_step_2': "**2. Automation**: A portion of tickets is resolved automatically (e.g., FAQ bots)",
+        'how_step_3': "**3. Staff Capacity**: Available agents (full-time/part-time) minus absences",
+        'how_step_4': "**4. Complexity Adjustment**: Tickets have different difficulty levels (Low/Medium/High)",
+        'how_step_5': "**5. Ticket Processing**: As many tickets as possible are solved",
+        'how_step_6': "**6. Backlog**: Unsolved tickets carry over to the next day",
+
+        'section_key_metrics': "📊 Key Metrics",
+        'metric_wait_desc': "**Avg Wait Time**: Time until resolution (queue + processing + reaction time)",
+        'metric_backlog_desc': "**Max Backlog**: Highest number of unresolved tickets on any day",
+        'metric_solved_desc': "**Total Solved**: Total number of successfully processed tickets",
+        'metric_clearance_desc': "**Clearance Rate**: Percentage of solved vs. incoming tickets (≥100% = sustainable)",
+
+        'section_model_features': "✨ Model Features (v2.0)",
+        'feature_1': "**Realistic Absences**: Planned vacation/sick days instead of random daily failures",
+        'feature_2': "**Lognormal Distribution**: Prevents negative ticket counts, realistic spikes",
+        'feature_3': "**Precise Calculation**: Float arithmetic avoids rounding errors over long periods",
+        'feature_4': "**Improved Wait Time**: Accounts for queue time + processing time + reaction time",
+        'feature_5': "**Complexity Factors**: Estimated multipliers (Low: 1.0, Medium: 1.5, High: 2.5)",
+
+        'section_limitations': "⚠️ Known Limitations",
+        'limitation_1': "**Constant Complexity**: Distribution doesn't change over time",
+        'limitation_2': "**Equal Efficiency**: All agents have the same performance (no experience differences)",
+        'limitation_3': "**FIFO Queue**: No prioritization by SLA or urgency",
+        'limitation_4': "**No Escalations**: Tickets are solved once, no reopenings",
+        'limitation_5': "**Daily Granularity**: Hourly dynamics are not modeled",
+        'limitation_6': "**No Seasonality**: Weekly/monthly patterns not implemented",
+
+        'section_use_cases': "✅ Recommended Use Cases",
+        'use_case_good': """**Well suited for:**
+        - Strategic capacity planning (months ahead)
+        - Comparing staffing strategies
+        - Sensitivity analyses ("what if?")
+        - Understanding steady-state behavior""",
+
+        'use_case_bad': """**Not suitable for:**
+        - Real-time operational decisions
+        - Detailed SLA compliance analysis
+        - Modeling specific incidents
+        - Sub-hourly predictions""",
+
+        'section_docs': "📚 Detailed Documentation",
+        'docs_link_logic': "**[SIMULATION_LOGIC.md](https://github.com/quito96/TicketSimulation/blob/master/docs/SIMULATION_LOGIC.md)**: Mathematical model, formulas, algorithms",
+        'docs_link_limits': "**[KNOWN_LIMITATIONS.md](https://github.com/quito96/TicketSimulation/blob/master/docs/KNOWN_LIMITATIONS.md)**: All 12 assumptions and their implications",
+        'docs_link_changes': "**[CHANGELOG.md](https://github.com/quito96/TicketSimulation/blob/master/docs/CHANGELOG.md)**: Version history and changes",
+
+        'section_validation': "🔬 Validate the Model",
+        'validation_text': """To validate this model with your real data:
+        1. **Ticket Volumes**: Analyze historical daily numbers, adjust parameters
+        2. **Agent Efficiency**: Measure tickets per agent per day
+        3. **Complexity Factors**: Analyze actual processing times by level
+        4. **Wait Times**: Compare simulated with measured SLA metrics
+        5. **Absence Rates**: Verify actual vacation/sick leave rates""",
+
+        'section_author': "👨‍💻 About",
+        'author_text': "Developed by **Quito96** | [GitHub Repository](https://github.com/quito96/TicketSimulation)",
+        'version_text': "Version 2.0.0 - December 2025",
     },
     'DE': {
         # General
@@ -201,5 +270,74 @@ Passen Sie die Parameter in der Seitenleiste an, um die Auswirkungen auf **Lösu
         'axis_wait': "Wartezeit (Stunden)",
         'axis_prob': "Wahrscheinlichkeit (<= x)",
         'title_cdf': "CDF der Wartezeit",
+
+        # Info Page
+        'page_title_info': "Projekt Info",
+        'info_title': "ℹ️ Projekt Information",
+        'info_subtitle': "Über diese Simulation und ihre Funktionsweise",
+
+        'section_overview': "📋 Überblick",
+        'overview_text': """Diese Anwendung simuliert ein Support-Ticket-System, um Personalbedarfsplanung
+        und Kapazitätsmanagement zu unterstützen. Sie modelliert realistische Ticket-Flows unter
+        Berücksichtigung von Personal, Komplexität und Automatisierung.""",
+
+        'section_how_it_works': "⚙️ Wie funktioniert die Simulation?",
+        'how_step_1': "**1. Ticket-Eingang**: Tickets kommen täglich mit konfigurierbarer Volatilität an (Lognormal-Verteilung)",
+        'how_step_2': "**2. Automatisierung**: Ein Teil der Tickets wird automatisch gelöst (z.B. FAQ-Bots)",
+        'how_step_3': "**3. Personalkapazität**: Verfügbare Agenten (Vollzeit/Teilzeit) minus Abwesenheiten",
+        'how_step_4': "**4. Komplexitätsanpassung**: Tickets haben unterschiedliche Schwierigkeitsgrade (Niedrig/Mittel/Hoch)",
+        'how_step_5': "**5. Ticket-Bearbeitung**: So viele Tickets wie möglich werden gelöst",
+        'how_step_6': "**6. Rückstau**: Ungelöste Tickets werden auf den nächsten Tag übertragen",
+
+        'section_key_metrics': "📊 Wichtige Kennzahlen",
+        'metric_wait_desc': "**Durchschn. Wartezeit**: Zeit bis zur Lösung (Queue + Bearbeitung + Reaktionszeit)",
+        'metric_backlog_desc': "**Max. Rückstau**: Höchste Anzahl ungelöster Tickets an einem Tag",
+        'metric_solved_desc': "**Gelöste Tickets**: Gesamtzahl erfolgreich bearbeiteter Tickets",
+        'metric_clearance_desc': "**Lösungsquote**: Prozentsatz der gelösten vs. eingegangenen Tickets (≥100% = nachhaltig)",
+
+        'section_model_features': "✨ Modell-Features (v2.0)",
+        'feature_1': "**Realistische Abwesenheiten**: Geplante Urlaubs-/Krankheitstage statt zufälliger täglicher Ausfälle",
+        'feature_2': "**Lognormal-Verteilung**: Verhindert negative Ticket-Zahlen, realistische Spitzen",
+        'feature_3': "**Präzise Berechnung**: Float-Arithmetik vermeidet Rundungsfehler über lange Zeiträume",
+        'feature_4': "**Verbesserte Wartezeit**: Berücksichtigt Queue-Zeit + Bearbeitungszeit + Reaktionszeit",
+        'feature_5': "**Komplexitätsfaktoren**: Geschätzte Multiplikatoren (Niedrig: 1.0, Mittel: 1.5, Hoch: 2.5)",
+
+        'section_limitations': "⚠️ Bekannte Einschränkungen",
+        'limitation_1': "**Konstante Komplexität**: Verteilung ändert sich nicht über die Zeit",
+        'limitation_2': "**Gleiche Effizienz**: Alle Agenten haben die gleiche Leistung (keine Erfahrungsunterschiede)",
+        'limitation_3': "**FIFO-Warteschlange**: Keine Priorisierung nach SLA oder Dringlichkeit",
+        'limitation_4': "**Keine Eskalationen**: Tickets werden einmal gelöst, keine Wiederöffnungen",
+        'limitation_5': "**Tages-Granularität**: Stunden-genaue Dynamiken werden nicht modelliert",
+        'limitation_6': "**Keine Saisonalität**: Wöchentliche/monatliche Muster nicht implementiert",
+
+        'section_use_cases': "✅ Empfohlene Anwendungsfälle",
+        'use_case_good': """**Gut geeignet für:**
+        - Strategische Kapazitätsplanung (Monate im Voraus)
+        - Vergleich von Personalstrategien
+        - Sensitivitätsanalysen ("Was wäre wenn?")
+        - Verständnis von Steady-State-Verhalten""",
+
+        'use_case_bad': """**Nicht geeignet für:**
+        - Echtzeit-Betriebsentscheidungen
+        - Detaillierte SLA-Compliance-Analyse
+        - Modellierung spezifischer Vorfälle
+        - Vorhersagen unter der Stunde""",
+
+        'section_docs': "📚 Ausführliche Dokumentation",
+        'docs_link_logic': "**[SIMULATION_LOGIC.md](https://github.com/quito96/TicketSimulation/blob/master/docs/SIMULATION_LOGIC.md)**: Mathematisches Modell, Formeln, Algorithmen",
+        'docs_link_limits': "**[KNOWN_LIMITATIONS.md](https://github.com/quito96/TicketSimulation/blob/master/docs/KNOWN_LIMITATIONS.md)**: Alle 12 Annahmen und ihre Auswirkungen",
+        'docs_link_changes': "**[CHANGELOG.md](https://github.com/quito96/TicketSimulation/blob/master/docs/CHANGELOG.md)**: Versionshistorie und Änderungen",
+
+        'section_validation': "🔬 Modell validieren",
+        'validation_text': """Um dieses Modell mit Ihren realen Daten zu validieren:
+        1. **Ticket-Volumina**: Historische tägliche Zahlen analysieren, Parameter anpassen
+        2. **Agenten-Effizienz**: Tickets pro Agent pro Tag messen
+        3. **Komplexitätsfaktoren**: Tatsächliche Bearbeitungszeiten nach Level analysieren
+        4. **Wartezeiten**: Simulierte mit gemessenen SLA-Metriken vergleichen
+        5. **Abwesenheitsquoten**: Tatsächliche Urlaubs-/Krankheitsraten überprüfen""",
+
+        'section_author': "👨‍💻 Über",
+        'author_text': "Entwickelt von **Quito96** | [GitHub Repository](https://github.com/quito96/TicketSimulation)",
+        'version_text': "Version 2.0.0 - Dezember 2025",
     }
 }

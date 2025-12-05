@@ -2,27 +2,42 @@
 
 All notable changes to the Ticket Simulation project are documented in this file.
 
-## [2.0.0] - 2024-12-05
+## [2.0.0] - 2025-12-05
 
 ### Major Improvements - Realistic Simulation
 
-This release focuses on improving the realism and accuracy of the simulation model.
+This release focuses on improving the realism and accuracy of the simulation model, plus adds a comprehensive Info page.
+
+#### Added
+
+1. **Info Page** (New Feature!)
+   - **What**: New bilingual information page accessible via sidebar
+   - **Contents**:
+     - Project overview and how it works
+     - Key metrics explanation
+     - Model features (v2.0)
+     - Known limitations
+     - Recommended use cases
+     - Validation guide
+     - Links to detailed documentation
+   - **Impact**: Users can understand the simulation without reading technical docs
+   - **Files**: `pages/2_ℹ️_Info.py`, `translations.py:113-180, 205-273`
 
 #### Fixed
 
-1. **Vacation/Absence Modeling** (Critical)
+2. **Vacation/Absence Modeling** (Critical)
    - **Problem**: Used binomial distribution where each agent independently had a vacation_rate chance of being absent each day. This led to unrealistic high variance in absences.
    - **Solution**: Implemented a pre-calculated absence schedule where the total number of absent days matches the vacation_rate over the simulation period, distributed randomly across agents and days.
    - **Impact**: More realistic absence patterns, reduced variance in daily capacity.
    - **Files**: `simulation.py:72-85`
 
-2. **Precision Loss in Results** (Critical)
+3. **Precision Loss in Results** (Critical)
    - **Problem**: Integer conversion of floating-point values (inbound, solved, backlog) caused cumulative precision loss over 60-day simulations.
    - **Solution**: Maintain float values throughout computation, only round for display (2-3 decimal places).
    - **Impact**: Accurate ticket accounting, no "lost" tickets over time.
    - **Files**: `simulation.py:70, 168-179`
 
-3. **Wait Time Calculation Logic** (Critical)
+4. **Wait Time Calculation Logic** (Critical)
    - **Problem**: Simplistic calculation that added a fixed 1-hour minimum wait time regardless of actual processing time or complexity.
    - **Solution**: Improved calculation with two components:
      - Queue wait time: `backlog / daily_capacity` (days)
@@ -30,13 +45,13 @@ This release focuses on improving the realism and accuracy of the simulation mod
    - **Impact**: More accurate and realistic wait time estimates.
    - **Files**: `simulation.py:142-166`
 
-4. **Inbound Ticket Distribution** (High Priority)
+5. **Inbound Ticket Distribution** (High Priority)
    - **Problem**: Normal distribution allows negative values and unrealistic extreme outliers.
    - **Solution**: Replaced with lognormal distribution which ensures non-negative values and realistic right-skewed traffic patterns.
    - **Impact**: More realistic daily ticket volumes, no negative tickets.
    - **Files**: `simulation.py:88-97`
 
-5. **Hardcoded Part-Time Hours in Comparison Page** (Medium Priority)
+6. **Hardcoded Part-Time Hours in Comparison Page** (Medium Priority)
    - **Problem**: Total staff hours calculation used hardcoded 4 hours for part-time agents instead of the configured value.
    - **Solution**: Added separate `pt_hours` sliders for scenarios A and B, used actual values in calculations.
    - **Impact**: Accurate cost/hours comparison between scenarios.
@@ -44,7 +59,7 @@ This release focuses on improving the realism and accuracy of the simulation mod
 
 #### Removed
 
-6. **Non-Functional Seasonality Feature**
+7. **Non-Functional Seasonality Feature**
    - **Problem**: UI checkbox for seasonality existed but had no effect on simulation.
    - **Solution**: Removed the UI element to avoid user confusion.
    - **Impact**: Cleaner UI, no false expectations.
@@ -52,10 +67,12 @@ This release focuses on improving the realism and accuracy of the simulation mod
 
 #### Improved
 
-7. **Documentation and Code Comments**
+8. **Documentation and Code Comments**
    - Added comprehensive docstring to `run_simulation()` function explaining all parameters, algorithms, and return values.
    - Added inline comments throughout simulation logic explaining each step.
-   - **Files**: `simulation.py:17-60`
+   - Created `docs/VERSIONING.md` - Semantic Versioning guidelines for future releases
+   - Updated `docs/README.md` to include versioning documentation
+   - **Files**: `simulation.py:17-60`, `docs/VERSIONING.md`, `docs/README.md`
 
 ### Technical Details
 
